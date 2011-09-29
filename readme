@@ -1,1 +1,8 @@
-test
+This is just a demo for making a simple vertical paralax using 2 divs of different heights. The bottom one, shown behind, should be shorter than the top one. Hardcode the heights of #top and #bottom in the js and the css (I didn't code these values to be dynamic, didn't feel like that was in the scope of this demo). The scroll event triggers the function to reposition the background. The formula I use makes sure both divs start together at the top and end together at the bottom. 
+
+((winPos / (topHeight - windowHeight)) * (windowHeight - bottomHeight))
+
+It used position:fixed on the background to reduce choppiness from having it respond to the actual scroll event as well as the programatic movements. However, it occurs to me that there might have been a simpler way of doing that. That change required a couple of slight changes to the formula but resulted in MUCH smoother performance.
+
+There are a couple of dependencies. I included them in the repo.
+
