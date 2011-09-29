@@ -2,7 +2,7 @@ This is just a demo for making a simple vertical paralax using 2 divs of differe
 
 ((winPos / (topHeight - windowHeight)) * (windowHeight - bottomHeight))
 
-It used position:fixed on the background to reduce choppiness from having it respond to the actual scroll event as well as the programatic movements. However, it occurs to me that there might have been a simpler way of doing that. That change required a couple of slight changes to the formula but resulted in MUCH smoother performance.
+I used position:fixed on the background to reduce choppiness from having it respond to the actual scroll event as well as the programatic movements. However, it occurs to me that there might have been a simpler way of doing that. That change required a couple of slight changes to the formula but resulted in MUCH smoother performance.
 
 There are a couple of dependencies. I included them in the repo.
 
