@@ -2,33 +2,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Untitled Document</title>
+<title>Simple Vertical Paralax</title>
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="jquery.ba-throttle-debounce.min.js"></script>
 <script>
 $(document).ready(function () {
-    //alert ( $(window).height());
+    //hardcoded sizes of top and bottom, matching the css for #top and #bottom
     var topHeight = (2800);
     var bottomHeight = (1200);
     
     $(window).scroll($.throttle(60, moveMe));
-	$(window).resize($.debounce(1000 , moveMe));
+    $(window).resize($.debounce(1000 , moveMe));
 	
     function moveMe() {
 		
-		var windowHeight = $(window).height();
-        var winPos = jQuery(window).scrollTop();
+	var windowHeight = $(window).height();
+        var winPos = $(window).scrollTop();
         var maxScroll = (topHeight - windowHeight);
-        var E = ((windowHeight - bottomHeight));
-        var bottomCalculation = ((Math.round(winPos) / maxScroll) * (E));
-		//bottomCalculation = (bottomCalculation ) - ((bottomCalculation )*2);
-		/*console.log("winPos:"+winPos);   
-		console.log(winPos+"//"+Math.round(winPos) );*/
-		console.log(Math.round(bottomCalculation));
+        var delta = ((windowHeight - bottomHeight));
+        var bottomCalculation = ((winPos / maxScroll) * delta);
+	//bottomCalculation = (bottomCalculation ) - ((bottomCalculation )*2);
+	/*console.log("winPos:"+winPos);   
+	console.log(winPos+"//"+Math.round(winPos) );
+	console.log(bottomCalculation);*/
 
 
         $('#bottom').stop().animate({
-            top: Math.round(bottomCalculation)
+            top: bottomCalculation
         }, {
             duration: 60,
             specialEasing: {
