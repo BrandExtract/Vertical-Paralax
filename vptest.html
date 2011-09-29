@@ -19,15 +19,15 @@ $(document).ready(function () {
 		var windowHeight = $(window).height();
         var winPos = jQuery(window).scrollTop();
         var maxScroll = (topHeight - windowHeight);
-        var E = ((topHeight - bottomHeight));
+        var E = ((windowHeight - bottomHeight));
         var bottomCalculation = ((Math.round(winPos) / maxScroll) * (E));
-
+		//bottomCalculation = (bottomCalculation ) - ((bottomCalculation )*2);
 		/*console.log("winPos:"+winPos);   
-		console.log(winPos+"//"+Math.round(winPos) );
-		console.log(Math.round(bottomCalculation));*/
+		console.log(winPos+"//"+Math.round(winPos) );*/
+		console.log(Math.round(bottomCalculation));
 
 
-        $('#bottom').animate({
+        $('#bottom').stop().animate({
             top: Math.round(bottomCalculation)
         }, {
             duration: 60,
@@ -62,7 +62,7 @@ background-repeat:no-repeat;
 }
 
 #bottom {
-position:absolute;
+position:fixed;
 z-index:1;
 width:100%;
 height:1200px;
